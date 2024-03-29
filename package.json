@@ -7,9 +7,8 @@
   "type": "module",
   "repository": "https://github.com/XingXiaoWu/xing.wu-axios.git",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "npx tsc && npm publish",
-    "next": "npx tsc && npm publish --tag next"
+    "build": "babel index.js --out-dir lib",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "xing.wu",

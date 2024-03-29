@@ -47,6 +47,7 @@ const getBankInfo = async (cardNumber) => {
     }
     return null;
 }
-export default {
+
+export {
     getBankInfo
 }
