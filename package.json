@@ -2,7 +2,7 @@
   "name": "@xing.wu/bankbin",
   "version": "1.1.0",
   "description": "无星的卡bin转换库",
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "types": "./lib/index.d.ts",
   "type": "module",
   "repository": "https://github.com/XingXiaoWu/xing.wu-axios.git",
@@ -17,7 +17,6 @@
   "author": "xing.wu<329106954@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "@xing.wu/bankbin": "link:",
     "csv-parser": "^3.0.0",
     "fs-extra": "^11.2.0",
     "iconv-lite": "^0.6.3",
@@ -27,9 +26,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
-    "@babel/node": "^7.23.9",
-    "@babel/preset-env": "^7.24.0"
+    "typescript": "^5.4.3"
   }
 }

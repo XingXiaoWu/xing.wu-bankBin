@@ -8,7 +8,7 @@ const splitData = () => {
         let dataArray = []
         const transformStream = iconv.decodeStream('gbk');
         const __dirname = path.resolve();
-        const csvPath = path.resolve(__dirname, './bin.csv')
+        const csvPath = path.resolve(__dirname, './src/bin.csv')
         fs.createReadStream(csvPath)
             .pipe(transformStream)
             .pipe(csv())
@@ -51,3 +51,6 @@ const getBankInfo = async (cardNumber) => {
 export {
     getBankInfo
 }
+
+const aa = await getBankInfo('6226822200352071283')
+console.log(aa.BankName);
