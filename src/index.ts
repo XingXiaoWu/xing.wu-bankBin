@@ -2,10 +2,18 @@ import csv from 'csv-parser'
 import fs from 'fs-extra'
 import iconv from 'iconv-lite'
 import path from 'path'
-let bankInfos = []
+interface BankInfo {
+    BankBin: string,
+    BankNumberLength: string,
+    BankName: string,
+    BankNumber: string,
+    BankClass: string,
+    BankBinLength: string
+}
+let bankInfos: any = []
 const splitData = () => {
     return new Promise((resolve, reject) => {
-        let dataArray = []
+        let dataArray: any = []
         const transformStream = iconv.decodeStream('gbk');
         const __dirname = path.resolve();
         const csvPath = path.resolve(__dirname, './src/bin.csv')
@@ -26,7 +34,7 @@ const splitData = () => {
 }
 
 // 获取银行信息
-const getBankInfo = async (cardNumber) => {
+const getBankInfo = async (cardNumber: string) => {
     if (bankInfos.length === 0) {
         // 如果不存在，就初始化
         bankInfos = await splitData()
@@ -35,7 +43,14 @@ const getBankInfo = async (cardNumber) => {
         let length = parseInt(bankInfos[i][5]);
         let str = cardNumber.substring(0, length);
         if (str.includes(bankInfos[i][0]) && cardNumber.length === parseInt(bankInfos[i][1])) {
-            let keyValues = {};
+            let keyValues: BankInfo = {
+                BankBin: '',
+                BankNumberLength: '',
+                BankName: '',
+                BankNumber: '',
+                BankClass: '',
+                BankBinLength: ''
+            };
             keyValues["BankBin"] = bankInfos[i][0];
             keyValues["BankNumberLength"] = bankInfos[i][1];
             keyValues["BankName"] = bankInfos[i][2];
