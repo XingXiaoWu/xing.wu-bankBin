@@ -1,6 +1,7 @@
 import csv from 'csv-parser'
 import fs from 'fs-extra'
 import iconv from 'iconv-lite'
+import { fileURLToPath } from 'node:url';
 import path from 'path'
 interface BankInfo {
     BankBin: string,
@@ -15,8 +16,11 @@ const splitData = () => {
     return new Promise((resolve, reject) => {
         let dataArray: any = []
         const transformStream = iconv.decodeStream('gbk');
-        const __dirname = path.resolve();
-        const csvPath = path.resolve(__dirname, './src/bin.csv')
+        // const __dirname = path.resolve();
+        // const csvPath = path.resolve(__dirname, './src/bin.csv')
+        //const csvPath = path.resolve(import.meta.dirname, './bin.csv')
+        const __filename = fileURLToPath(import.meta.url)
+        const csvPath = path.resolve(__filename, '../bin.csv')
         fs.createReadStream(csvPath)
             .pipe(transformStream)
             .pipe(csv())

@@ -1,32 +1,26 @@
 {
-  "name": "@xing.wu/bankbin",
-  "version": "1.1.0",
-  "description": "无星的卡bin转换库",
-  "main": "./index.js",
-  "types": "./lib/index.d.ts",
+  "name": "@xing.wu/bankBin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "type": "module",
-  "repository": "https://github.com/XingXiaoWu/xing.wu-axios.git",
   "scripts": {
-    "build": "babel index.js --out-dir lib",
-    "prepublishOnly": "npm run build"
+    "build": "tsup",
+    "dev": "tsup --watch src",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "xing.wu",
-    "@xing.wu/bankbin"
-  ],
-  "author": "xing.wu<329106954@qq.com>",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "csv-parser": "^3.0.0",
     "fs-extra": "^11.2.0",
     "iconv-lite": "^0.6.3",
     "path": "^0.12.7"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.3"
   }
 }
