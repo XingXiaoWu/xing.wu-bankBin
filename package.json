@@ -2,16 +2,29 @@
   "name": "@xing.wu/bankBin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.[mts|cts|ts]",
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsup --watch src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "dependencies": {
     "csv-parser": "^3.0.0",
     "fs-extra": "^11.2.0",
