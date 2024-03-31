@@ -1,5 +1,5 @@
 // test-es6.js
-import { getBankInfo } from '../dist/index.mjs';
+import { getBankInfo } from '../dist/index.js';
 // 使用myFunction进行测试
 const main = async () => {
     const aa = await getBankInfo('6226822200352071283')

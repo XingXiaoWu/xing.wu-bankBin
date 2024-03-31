@@ -20,7 +20,7 @@ const splitData = () => {
         // const csvPath = path.resolve(__dirname, './src/bin.csv')
         //const csvPath = path.resolve(import.meta.dirname, './bin.csv')
         const __filename = fileURLToPath(import.meta.url)
-        const csvPath = path.resolve(__filename, './bin.csv')
+        const csvPath = path.resolve(__filename, '../bin.csv')
         fs.createReadStream(csvPath)
             .pipe(transformStream)
             .pipe(csv())

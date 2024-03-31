@@ -50,7 +50,7 @@ var splitData = () => {
     let dataArray = [];
     const transformStream = import_iconv_lite.default.decodeStream("gbk");
     const __filename2 = (0, import_node_url.fileURLToPath)(importMetaUrl);
-    const csvPath = import_path.default.resolve(__filename2, "./bin.csv");
+    const csvPath = import_path.default.resolve(__filename2, "../bin.csv");
     import_fs_extra.default.createReadStream(csvPath).pipe(transformStream).pipe((0, import_csv_parser.default)()).on("data", (row) => {
       let rowData = Object.values(row);
       dataArray.push(rowData);
